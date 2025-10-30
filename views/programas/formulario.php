@@ -9,8 +9,8 @@
     <h2><?= isset($programa) ? 'Editar Programa' : 'Nuevo Programa' ?></h2>
 
     <form method="POST">
-        <label>Código:</label>
-        <input type="text" name="codigo" value="<?= $programa['codigo'] ?? '' ?>" <?= isset($programa) ? 'readonly' : '' ?> required>
+    <label>Código:</label>
+    <input type="number" name="codigo" value="<?= $programa['codigo'] ?? '' ?>" <?= isset($programa) ? 'readonly' : '' ?> required min="1" step="1" pattern="[0-9]+" title="Solo números">
 
         <label>Nombre:</label>
         <input type="text" name="nombre" value="<?= $programa['nombre'] ?? '' ?>" required>
