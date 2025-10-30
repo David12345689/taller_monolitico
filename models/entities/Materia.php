@@ -9,7 +9,7 @@ class Materia {
     }
 
     public function listar() {
-        $stmt = $this->pdo->query("SELECT * FROM materias");
+        $stmt = $this->pdo->query("Select materias.*  , programas.nombre AS nombrePrograma from materias inner join programas on materias.programa = programas.codigo");
         return $stmt->fetchAll();
     }
 

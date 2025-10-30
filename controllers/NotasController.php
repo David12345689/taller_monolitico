@@ -62,13 +62,13 @@ class NotasController {
             $resultado = $this->modelo->actualizar($materia, $estudiante, $actividad, $_POST['nota']);
 
             if ($resultado === "fuera_rango") {
-                echo "<script>alert('⚠️ La nota debe ser mayor que 0 y menor que 5.');</script>";
+                echo "<script>alert(' La nota debe ser mayor que 0 y menor que 5.');</script>";
             } elseif ($resultado === true) {
-                echo "<script>alert('✅ Nota actualizada correctamente.');</script>";
+                echo "<script>alert(' Nota actualizada correctamente.');</script>";
                 echo "<script>window.location.href='index.php?controller=notas&action=index';</script>";
                 exit;
             } else {
-                echo "<script>alert('❌ Error al actualizar la nota.');</script>";
+                echo "<script>alert(' Error al actualizar la nota.');</script>";
             }
         }
 
@@ -83,9 +83,9 @@ class NotasController {
         $resultado = $this->modelo->eliminar($materia, $estudiante, $actividad);
 
         if ($resultado === true) {
-            echo "<script>alert('✅ Nota eliminada correctamente.');</script>";
+            echo "<script>alert(' Nota eliminada correctamente.');</script>";
         } else {
-            echo "<script>alert('❌ Error al eliminar la nota.');</script>";
+            echo "<script>alert(' Error al eliminar la nota.');</script>";
         }
 
         echo "<script>window.location.href='index.php?controller=notas&action=index';</script>";

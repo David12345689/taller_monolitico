@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="top-menu">
-        <a href="index.php">🏠 Menú principal</a>
+        <a href="index.php"> Menú principal</a>
     </div>
 
     <h2 class="text-center">Promedios por Materia - <?= htmlspecialchars($estudiante['nombre']) ?></h2>

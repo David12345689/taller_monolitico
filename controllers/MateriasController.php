@@ -23,13 +23,13 @@ class MateriasController {
             $resultado = $this->modelo->crear($_POST);
 
             if ($resultado === "duplicado") {
-                echo "<script>alert('⚠️ El código de la materia ya existe. Usa uno diferente.');</script>";
+                echo "<script>alert(' El código de la materia ya existe. Usa uno diferente.');</script>";
             } elseif ($resultado === true) {
-                echo "<script>alert('✅ Materia registrada correctamente.');</script>";
+                echo "<script>alert(' Materia registrada correctamente.');</script>";
                 echo "<script>window.location.href='index.php?controller=materias&action=index';</script>";
                 exit;
             } else {
-                echo "<script>alert('❌ Error al registrar la materia.');</script>";
+                echo "<script>alert(' Error al registrar la materia.');</script>";
             }
         }
 
@@ -43,7 +43,7 @@ class MateriasController {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->modelo->actualizar($codigo, $_POST);
-            echo "<script>alert('✅ Materia actualizada correctamente.');</script>";
+            echo "<script>alert(' Materia actualizada correctamente.');</script>";
             echo "<script>window.location.href='index.php?controller=materias&action=index';</script>";
             exit;
         }
@@ -56,11 +56,11 @@ class MateriasController {
         $resultado = $this->modelo->eliminar($codigo);
 
         if ($resultado === "relaciones") {
-            echo "<script>alert('⚠️ No se puede eliminar la materia porque tiene notas asociadas.');</script>";
+            echo "<script>alert(' No se puede eliminar la materia porque tiene notas asociadas.');</script>";
         } elseif ($resultado === true) {
-            echo "<script>alert('✅ Materia eliminada correctamente.');</script>";
+            echo "<script>alert(' Materia eliminada correctamente.');</script>";
         } else {
-            echo "<script>alert('❌ Error al eliminar la materia.');</script>";
+            echo "<script>alert(' Error al eliminar la materia.');</script>";
         }
 
         echo "<script>window.location.href='index.php?controller=materias&action=index';</script>";

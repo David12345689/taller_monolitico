@@ -26,7 +26,7 @@
         </select>
 
         <button type="submit">Guardar</button>
-        <a href="index.php?controller=materias&action=index">⬅️ Volver</a>
+        <a href="index.php?controller=materias&action=index">Volver</a>
     </form>
 </body>
 </html>

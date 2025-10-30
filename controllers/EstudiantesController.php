@@ -22,13 +22,13 @@ class EstudiantesController {
             $resultado = $this->modelo->crear($_POST);
 
             if ($resultado === "duplicado") {
-                echo "<script>alert('⚠️ El código del estudiante ya existe.');</script>";
+                echo "<script>alert(' El código del estudiante ya existe.');</script>";
             } elseif ($resultado === true) {
-                echo "<script>alert('✅ Estudiante registrado correctamente.');</script>";
+                echo "<script>alert(' Estudiante registrado correctamente.');</script>";
                 echo "<script>window.location.href='index.php?controller=estudiantes&action=index';</script>";
                 exit;
             } else {
-                echo "<script>alert('❌ Error al registrar el estudiante.');</script>";
+                echo "<script>alert(' Error al registrar el estudiante.');</script>";
             }
         }
 
@@ -43,7 +43,7 @@ class EstudiantesController {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->modelo->actualizar($codigo, $_POST);
-            echo "<script>alert('✅ Estudiante actualizado correctamente.');</script>";
+            echo "<script>alert('Estudiante actualizado correctamente.');</script>";
             echo "<script>window.location.href='index.php?controller=estudiantes&action=index';</script>";
             exit;
         }
@@ -56,11 +56,11 @@ class EstudiantesController {
         $resultado = $this->modelo->eliminar($codigo);
 
         if ($resultado === "relaciones") {
-            echo "<script>alert('⚠️ No se puede eliminar el estudiante porque tiene notas registradas.');</script>";
+            echo "<script>alert(' No se puede eliminar el estudiante porque tiene notas registradas.');</script>";
         } elseif ($resultado === true) {
-            echo "<script>alert('✅ Estudiante eliminado correctamente.');</script>";
+            echo "<script>alert(' Estudiante eliminado correctamente.');</script>";
         } else {
-            echo "<script>alert('❌ Error al eliminar el estudiante.');</script>";
+            echo "<script>alert(' Error al eliminar el estudiante.');</script>";
         }
 
         echo "<script>window.location.href='index.php?controller=estudiantes&action=index';</script>";

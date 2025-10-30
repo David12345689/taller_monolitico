@@ -7,14 +7,14 @@
 </head>
 <body>
     <div class="top-menu">
-        <a href="index.php">🏠 Menú principal</a> |
-        <a href="index.php?controller=notas&action=crear" class="btn">➕ Nueva Nota</a>
+        <a href="index.php"> Menú principal</a> |
+        <a href="index.php?controller=notas&action=crear" class="btn"> Nueva Nota</a>
     </div>
     <h2 class="text-center">Listado de Notas</h2>
 
     <div class="text-center" style="margin-bottom: 20px;">
-        <a href="#" onclick="mostrarPromedios('estudiantes')" class="btn">📊 Ver Promedios por Estudiante</a>
-        <a href="#" onclick="mostrarPromedios('materias')" class="btn">📚 Ver Promedios por Materia</a>
+        <a href="#" onclick="mostrarPromedios('estudiantes')" class="btn"> Ver Promedios por Estudiante</a>
+        <a href="#" onclick="mostrarPromedios('materias')" class="btn"> Ver Promedios por Materia</a>
     </div>
 
     <!-- Modal para seleccionar estudiante o materia -->

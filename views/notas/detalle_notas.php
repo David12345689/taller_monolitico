@@ -7,8 +7,8 @@
 </head>
 <body>
     <div class="top-menu">
-        <a href="index.php">🏠 Menú principal</a> |
-        <a href="javascript:history.back()">⬅️ Volver</a>
+        <a href="index.php"> Menú principal</a> |
+        <a href="javascript:history.back()"> Volver</a>
     </div>
 
     <h2 class="text-center">Detalle de Notas - <?= htmlspecialchars($materia['nombre']) ?></h2>
@@ -34,7 +34,7 @@
     </table>
 
     <div class="text-center" style="margin-top: 20px;">
-        <a href="index.php?controller=notas&action=crear" class="btn">➕ Agregar Nueva Nota</a>
+        <a href="index.php?controller=notas&action=crear" class="btn">Agregar Nueva Nota</a>
     </div>
 </body>
 </html>

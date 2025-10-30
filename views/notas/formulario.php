@@ -43,7 +43,7 @@
         <input type="number" name="valor" step="0.1" min="0.0" max="5.0" required>
 
         <button type="submit">Guardar</button>
-        <a href="index.php?controller=notas&action=index">⬅️ Volver</a>
+        <a href="index.php?controller=notas&action=index">Volver</a>
     </form>
 </body>
 </html>

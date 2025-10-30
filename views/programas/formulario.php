@@ -16,7 +16,7 @@
         <input type="text" name="nombre" value="<?= $programa['nombre'] ?? '' ?>" required>
 
         <button type="submit">Guardar</button>
-        <a href="index.php?controller=programas&action=index">⬅️ Volver</a>
+        <a href="index.php?controller=programas&action=index"> Volver</a>
     </form>
 </body>
 </html>

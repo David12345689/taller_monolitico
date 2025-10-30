@@ -18,13 +18,13 @@ class ProgramasController {
             $resultado = $this->modelo->crear($_POST);
 
             if ($resultado === "duplicado") {
-                echo "<script>alert('⚠️ El código del programa ya existe. Usa uno diferente.');</script>";
+                echo "<script>alert(' El código del programa ya existe. Usa uno diferente.');</script>";
             } elseif ($resultado === true) {
-                echo "<script>alert('✅ Programa registrado correctamente.');</script>";
+                echo "<script>alert(' Programa registrado correctamente.');</script>";
                 echo "<script>window.location.href='index.php?controller=programas&action=index';</script>";
                 exit;
             } else {
-                echo "<script>alert('❌ Error al registrar el programa.');</script>";
+                echo "<script>alert(' Error al registrar el programa.');</script>";
             }
         }
 
@@ -50,11 +50,11 @@ class ProgramasController {
         $resultado = $this->modelo->eliminar($codigo);
 
         if ($resultado === "relaciones") {
-            echo "<script>alert('⚠️ No se puede eliminar el programa porque tiene estudiantes o materias asociadas.');</script>";
+            echo "<script>alert(' No se puede eliminar el programa porque tiene estudiantes o materias asociadas.');</script>";
         } elseif ($resultado === true) {
-            echo "<script>alert('✅ Programa eliminado correctamente.');</script>";
+            echo "<script>alert(' Programa eliminado correctamente.');</script>";
         } else {
-            echo "<script>alert('❌ Error al eliminar el programa.');</script>";
+            echo "<script>alert(' Error al eliminar el programa.');</script>";
         }
 
         echo "<script>window.location.href='index.php?controller=programas&action=index';</script>";

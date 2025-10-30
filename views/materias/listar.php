@@ -7,8 +7,8 @@
 </head>
 <body>
     <div class="top-menu">
-        <a href="index.php">🏠 Menú principal</a> |
-        <a href="index.php?controller=materias&action=crear" class="btn">➕ Nueva Materia</a>
+        <a href="index.php"> Menú principal</a> |
+        <a href="index.php?controller=materias&action=crear" class="btn">Nueva Materia</a>
     </div>
 
     <h2 class="text-center">Listado de Materias</h2>
@@ -23,7 +23,7 @@
         <tr>
             <td><?= $m['codigo'] ?></td>
             <td><?= $m['nombre'] ?></td>
-            <td><?= $m['programa'] ?></td>
+            <td><?= $m['nombrePrograma'] ?></td>
             <td>
                 <a href="index.php?controller=materias&action=editar&codigo=<?= $m['codigo'] ?>">✏️ Editar</a> |
                 <a href="index.php?controller=materias&action=eliminar&codigo=<?= $m['codigo'] ?>" onclick="return confirm('¿Eliminar materia?')">🗑️ Eliminar</a>

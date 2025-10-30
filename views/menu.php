@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <h1>📘 Sistema de Gestión Académica</h1>
+        <h1> Sistema de Gestión Académica</h1>
     </header>
 
     <main>
