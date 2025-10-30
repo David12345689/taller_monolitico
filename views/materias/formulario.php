@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Formulario Materia</title>
     <link rel="stylesheet" href="views/css/styles.css">
+    <link rel="stylesheet" href="views/css/materias.css">
 </head>
 <body>
     <h2><?= isset($materia) ? 'Editar Materia' : 'Nueva Materia' ?></h2>

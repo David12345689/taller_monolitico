@@ -10,7 +10,7 @@ class Nota {
 
     public function listar() {
         $stmt = $this->pdo->query("
-            SELECT n.materia, n.estudiante, n.actividad, n.nota,
+            SELECT n.id, n.materia, n.estudiante, n.actividad, n.nota,
                    e.nombre AS estudiante_nombre,
                    m.nombre AS materia_nombre
             FROM notas n
@@ -50,6 +50,29 @@ class Nota {
         } catch (PDOException $e) {
             return false;
         }
+    }
+
+    // New methods to work with the numeric id primary key
+    public function obtenerPorId($id) {
+        $stmt = $this->pdo->prepare("SELECT * FROM notas WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch();
+    }
+
+    public function actualizarPorId($id, $notaVal) {
+        $nota = round(floatval($notaVal), 2);
+
+        if ($nota < 0 || $nota > 5) {
+            return "fuera_rango";
+        }
+
+        $stmt = $this->pdo->prepare("UPDATE notas SET nota = ? WHERE id = ?");
+        return $stmt->execute([$nota, $id]);
+    }
+
+    public function eliminarPorId($id) {
+        $stmt = $this->pdo->prepare("DELETE FROM notas WHERE id = ?");
+        return $stmt->execute([$id]);
     }
 
     public function actualizar($materia, $estudiante, $actividad, $notaVal) {
@@ -113,6 +136,12 @@ class Nota {
             GROUP BY e.codigo, e.nombre, e.email
         ");
         $stmt->execute([$materia, $materia]);
+        return $stmt->fetchAll();
+    }
+
+    public function listarPorEstudianteMateria($estudiante, $materia) {
+        $stmt = $this->pdo->prepare("SELECT actividad, nota, id FROM notas WHERE estudiante = ? AND materia = ? ORDER BY actividad");
+        $stmt->execute([$estudiante, $materia]);
         return $stmt->fetchAll();
     }
 }

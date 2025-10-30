@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Notas</title>
     <link rel="stylesheet" href="views/css/styles.css">
+    <link rel="stylesheet" href="views/css/notas_listar.css">
 </head>
 <body>
     <div class="top-menu">
@@ -12,21 +13,21 @@
     </div>
     <h2 class="text-center">Listado de Notas</h2>
 
-    <div class="text-center" style="margin-bottom: 20px;">
+    <div class="text-center top-menu">
         <a href="#" onclick="mostrarPromedios('estudiantes')" class="btn"> Ver Promedios por Estudiante</a>
         <a href="#" onclick="mostrarPromedios('materias')" class="btn"> Ver Promedios por Materia</a>
     </div>
 
     <!-- Modal para seleccionar estudiante o materia -->
-    <div id="modalSeleccion" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
-        <div style="background:white; padding:20px; border-radius:10px; width:300px; margin:100px auto;">
+    <div id="modalSeleccion">
+        <div class="modal-content">
             <h3 class="text-center">Seleccionar para ver promedios</h3>
-            <select id="seleccionId" style="width:100%; margin:10px 0;" class="form-control">
+            <select id="seleccionId" class="form-control">
                 <!-- Opciones se cargarán dinámicamente -->
             </select>
             <div class="text-center">
                 <button onclick="verPromedios()" class="btn">Ver Promedios</button>
-                <button onclick="cerrarModal()" class="btn" style="background:#666;">Cancelar</button>
+                <button onclick="cerrarModal()" class="btn btn-cancelar">Cancelar</button>
             </div>
         </div>
     </div>
@@ -47,8 +48,8 @@
                 <td><?= htmlspecialchars($n['actividad']) ?></td>
                 <td><?= htmlspecialchars($n['nota']) ?></td>
                 <td>
-                    <a href="index.php?controller=notas&action=editar&materia=<?= urlencode($n['materia']) ?>&estudiante=<?= urlencode($n['estudiante']) ?>&actividad=<?= urlencode($n['actividad']) ?>">✏️ Editar</a> |
-                    <a href="index.php?controller=notas&action=eliminar&materia=<?= urlencode($n['materia']) ?>&estudiante=<?= urlencode($n['estudiante']) ?>&actividad=<?= urlencode($n['actividad']) ?>" onclick="return confirm('¿Eliminar esta nota?')">🗑️ Eliminar</a>
+                    <a href="index.php?controller=notas&action=editar&id=<?= urlencode($n['id']) ?>">Editar</a> |
+                    <a href="index.php?controller=notas&action=eliminar&id=<?= urlencode($n['id']) ?>" onclick="return confirm('¿Eliminar esta nota?')">Eliminar</a>
                 </td>
             </tr>
         <?php endforeach; ?>

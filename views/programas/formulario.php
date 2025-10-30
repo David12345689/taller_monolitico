@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Formulario Programa</title>
     <link rel="stylesheet" href="views/css/styles.css">
+    <link rel="stylesheet" href="views/css/programas.css">
 </head>
 <body>
     <h2><?= isset($programa) ? 'Editar Programa' : 'Nuevo Programa' ?></h2>
@@ -15,8 +16,9 @@
         <label>Nombre:</label>
         <input type="text" name="nombre" value="<?= $programa['nombre'] ?? '' ?>" required>
 
-        <button type="submit">Guardar</button>
-        <a href="index.php?controller=programas&action=index"> Volver</a>
+    <button type="submit">Guardar</button>
+    <a href="index.php?controller=programas&action=index"> Volver</a>
+    <a href="index.php?controller=notas&action=index"> Volver a Notas</a>
     </form>
 </body>
 </html>

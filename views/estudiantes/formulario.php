@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Formulario Estudiante</title>
     <link rel="stylesheet" href="views/css/styles.css">
+    <link rel="stylesheet" href="views/css/estudiantes.css">
 </head>
 <body>
     <h2><?= isset($estudiante) ? 'Editar Estudiante' : 'Nuevo Estudiante' ?></h2>

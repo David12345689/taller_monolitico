@@ -27,8 +27,8 @@
             <td><?= $e['email'] ?></td>
             <td><?= $e['nombrePrograma'] ?></td>
             <td>
-                <a href="index.php?controller=estudiantes&action=editar&codigo=<?= $e['codigo'] ?>">✏️ Editar</a> |
-                <a href="index.php?controller=estudiantes&action=eliminar&codigo=<?= $e['codigo'] ?>" onclick="return confirm('¿Seguro que deseas eliminar este estudiante?')">🗑️ Eliminar</a>
+                <a href="index.php?controller=estudiantes&action=editar&codigo=<?= $e['codigo'] ?>">Editar</a> |
+                <a href="index.php?controller=estudiantes&action=eliminar&codigo=<?= $e['codigo'] ?>" onclick="return confirm('¿Seguro que deseas eliminar este estudiante?')">Eliminar</a>
             </td>
         </tr>
         <?php endforeach; ?>

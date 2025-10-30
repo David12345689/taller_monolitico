@@ -52,17 +52,16 @@ class NotasController {
     }
 
     public function editar() {
-        $materia = $_GET['materia'];
-        $estudiante = $_GET['estudiante'];
-        $actividad = $_GET['actividad'];
+        // Use numeric id (primary key) for editar
+        $id = $_GET['id'];
 
-        $nota = $this->modelo->obtener($materia, $estudiante, $actividad);
+        $nota = $this->modelo->obtenerPorId($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $resultado = $this->modelo->actualizar($materia, $estudiante, $actividad, $_POST['nota']);
+            $resultado = $this->modelo->actualizarPorId($id, $_POST['valor']);
 
             if ($resultado === "fuera_rango") {
-                echo "<script>alert(' La nota debe ser mayor que 0 y menor que 5.');</script>";
+                echo "<script>alert(' La nota debe ser mayor o igual a 0 y menor o igual a 5.');</script>";
             } elseif ($resultado === true) {
                 echo "<script>alert(' Nota actualizada correctamente.');</script>";
                 echo "<script>window.location.href='index.php?controller=notas&action=index';</script>";
@@ -76,11 +75,10 @@ class NotasController {
     }
 
     public function eliminar() {
-        $materia = $_GET['materia'];
-        $estudiante = $_GET['estudiante'];
-        $actividad = $_GET['actividad'];
+        // Use numeric id (primary key) for eliminar
+        $id = $_GET['id'];
 
-        $resultado = $this->modelo->eliminar($materia, $estudiante, $actividad);
+        $resultado = $this->modelo->eliminarPorId($id);
 
         if ($resultado === true) {
             echo "<script>alert(' Nota eliminada correctamente.');</script>";
@@ -90,6 +88,52 @@ class NotasController {
 
         echo "<script>window.location.href='index.php?controller=notas&action=index';</script>";
         exit;
+    }
+
+    public function verPromedios() {
+        // Mostrar promedios por materia para un estudiante
+        $estudianteId = $_GET['estudiante'] ?? null;
+        if (!$estudianteId) {
+            echo "<script>alert('Estudiante no especificado'); window.history.back();</script>";
+            exit;
+        }
+
+        $estudiante = $this->estModel->obtener($estudianteId);
+        $promedios = $this->modelo->listarPromediosPorMateria($estudianteId);
+
+        require __DIR__ . '/../views/notas/promedios_materia.php';
+    }
+
+    public function verPromediosPorMateria() {
+        // Mostrar promedios por estudiante para una materia
+        $materiaId = $_GET['materia'] ?? null;
+        if (!$materiaId) {
+            echo "<script>alert('Materia no especificada'); window.history.back();</script>";
+            exit;
+        }
+
+        $materia = $this->matModel->obtener($materiaId);
+        $promedios = $this->modelo->listarPromediosPorEstudiante($materiaId);
+
+        require __DIR__ . '/../views/notas/promedios_estudiante.php';
+    }
+
+    public function verDetalleNotas() {
+        // Mostrar detalle de notas para un estudiante y una materia
+        $estudianteId = $_GET['estudiante'] ?? null;
+        $materiaId = $_GET['materia'] ?? null;
+
+        if (!$estudianteId || !$materiaId) {
+            echo "<script>alert('Parámetros insuficientes'); window.history.back();</script>";
+            exit;
+        }
+
+        $estudiante = $this->estModel->obtener($estudianteId);
+        $materia = $this->matModel->obtener($materiaId);
+        $notas = $this->modelo->listarPorEstudianteMateria($estudianteId, $materiaId);
+        $promedio = $this->modelo->obtenerPromedio($estudianteId, $materiaId);
+
+        require __DIR__ . '/../views/notas/detalle_notas.php';
     }
 }
 ?>

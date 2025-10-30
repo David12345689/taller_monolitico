@@ -25,8 +25,8 @@
             <td><?= $m['nombre'] ?></td>
             <td><?= $m['nombrePrograma'] ?></td>
             <td>
-                <a href="index.php?controller=materias&action=editar&codigo=<?= $m['codigo'] ?>">✏️ Editar</a> |
-                <a href="index.php?controller=materias&action=eliminar&codigo=<?= $m['codigo'] ?>" onclick="return confirm('¿Eliminar materia?')">🗑️ Eliminar</a>
+                <a href="index.php?controller=materias&action=editar&codigo=<?= $m['codigo'] ?>">Editar</a> |
+                <a href="index.php?controller=materias&action=eliminar&codigo=<?= $m['codigo'] ?>" onclick="return confirm('¿Eliminar materia?')">Eliminar</a>
             </td>
         </tr>
         <?php endforeach; ?>

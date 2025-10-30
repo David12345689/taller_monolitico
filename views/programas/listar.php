@@ -23,8 +23,8 @@
             <td><?= $p['codigo'] ?></td>
             <td><?= $p['nombre'] ?></td>
             <td>
-                <a href="index.php?controller=programas&action=editar&codigo=<?= $p['codigo'] ?>"> Editar</a> |
-                <a href="index.php?controller=programas&action=eliminar&codigo=<?= $p['codigo'] ?>" onclick="return confirm('¿Seguro que deseas eliminar este programa?')">🗑️ Eliminar</a>
+                <a href="index.php?controller=programas&action=editar&codigo=<?= $p['codigo'] ?>">Editar</a> |
+                <a href="index.php?controller=programas&action=eliminar&codigo=<?= $p['codigo'] ?>" onclick="return confirm('¿Seguro que deseas eliminar este programa?')">Eliminar</a>
             </td>
         </tr>
         <?php endforeach; ?>
