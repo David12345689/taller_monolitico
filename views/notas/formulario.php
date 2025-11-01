@@ -45,7 +45,7 @@
                 <option value="Trabajo 2">Trabajo 2</option>
             </select>
         <?php else: ?>
-            <!-- Editing: show read-only info and include id as hidden -->
+            
             <p>Estudiante: <strong><?= htmlspecialchars($nota['estudiante']) ?> - <?= htmlspecialchars($nota['estudiante']) ? '' : '' ?></strong></p>
             <p>Materia: <strong><?= htmlspecialchars($nota['materia']) ?></strong></p>
             <p>Actividad: <strong><?= htmlspecialchars($nota['actividad']) ?></strong></p>

@@ -18,12 +18,12 @@
         <a href="#" onclick="mostrarPromedios('materias')" class="btn"> Ver Promedios por Materia</a>
     </div>
 
-    <!-- Modal para seleccionar estudiante o materia -->
+    
     <div id="modalSeleccion">
         <div class="modal-content">
             <h3 class="text-center">Seleccionar para ver promedios</h3>
             <select id="seleccionId" class="form-control">
-                <!-- Opciones se cargarán dinámicamente -->
+                
             </select>
             <div class="text-center">
                 <button onclick="verPromedios()" class="btn">Ver Promedios</button>
@@ -64,7 +64,7 @@
         tipo = tipoDatos;
         const modal = document.getElementById('modalSeleccion');
         const select = document.getElementById('seleccionId');
-        select.innerHTML = ''; // Limpiar opciones anteriores
+        select.innerHTML = '';
         
         if (tipoDatos === 'estudiantes') {
             estudiantes.forEach(est => {
