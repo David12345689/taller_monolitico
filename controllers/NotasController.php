@@ -26,7 +26,6 @@ class NotasController {
         $materias = $this->matModel->listar();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Validar que la materia pertenezca al programa del estudiante
             if (!$this->modelo->materiaEnProgramaEstudiante($_POST['materia'], $_POST['estudiante'])) {
                 echo "<script>alert('⚠️ La materia no pertenece al programa del estudiante.');</script>";
                 require __DIR__ . '/../views/notas/formulario.php';
@@ -52,7 +51,6 @@ class NotasController {
     }
 
     public function editar() {
-        // Use numeric id (primary key) for editar
         $id = $_GET['id'];
 
         $nota = $this->modelo->obtenerPorId($id);
@@ -75,7 +73,6 @@ class NotasController {
     }
 
     public function eliminar() {
-        // Use numeric id (primary key) for eliminar
         $id = $_GET['id'];
 
         $resultado = $this->modelo->eliminarPorId($id);
@@ -91,7 +88,6 @@ class NotasController {
     }
 
     public function verPromedios() {
-        // Mostrar promedios por materia para un estudiante
         $estudianteId = $_GET['estudiante'] ?? null;
         if (!$estudianteId) {
             echo "<script>alert('Estudiante no especificado'); window.history.back();</script>";
@@ -105,7 +101,6 @@ class NotasController {
     }
 
     public function verPromediosPorMateria() {
-        // Mostrar promedios por estudiante para una materia
         $materiaId = $_GET['materia'] ?? null;
         if (!$materiaId) {
             echo "<script>alert('Materia no especificada'); window.history.back();</script>";
@@ -119,7 +114,6 @@ class NotasController {
     }
 
     public function verDetalleNotas() {
-        // Mostrar detalle de notas para un estudiante y una materia
         $estudianteId = $_GET['estudiante'] ?? null;
         $materiaId = $_GET['materia'] ?? null;
 
