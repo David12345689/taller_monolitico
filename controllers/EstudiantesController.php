@@ -41,7 +41,7 @@ class EstudiantesController {
         $programaModel = new Programa();
         $programas = $programaModel->listar();
 
-        // Si el estudiante ya tiene notas registradas, no permitir edición
+        
         if ($this->modelo->tieneNotas($codigo)) {
             // Si el intento fue mediante POST (envío), también bloqueamos y redirigimos
             echo "<script>alert(' No se puede modificar el estudiante porque tiene notas registradas.');</script>";
